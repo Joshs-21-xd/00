@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0a0a0a;
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Lámpara */
+#lamp-container {
+    position: relative;
+    top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 1s ease;
+}
+
+.lamp-cable {
+    width: 3px;
+    height: 120px;
+    background: #333;
+}
+
+#svg-lamp {
+    width: 150px;
+}
+
+#lamp-glow,
+#lamp-bulb {
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.lamp-on #lamp-glow,
+.lamp-on #lamp-bulb {
+    opacity: 1;
+}
+
+/* Mensaje */
+#love-message {
+    margin-top: 30px;
+    font-size: 20px;
+    text-align: center;
+    max-width: 90%;
+    color: #ffdce6;
+    line-height: 1.5;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+/* Botones */
+.center-desktop {
+    margin-top: 30px;
+}
+
+#desktop-btn,
+#mobile-btn {
+    background: #222;
+    border: 2px solid #fff;
+    padding: 12px 28px;
+    color: white;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#desktop-btn.on,
+#mobile-btn.on {
+    background: #ffe8a3;
+    color: black;
+}
+
+/* ocultar botón */
+.btn-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Móvil */
+.center-mobile {
+    display: none;
+}
+
+@media (max-width: 600px) {
+
+    #lamp-container.lamp-down {
+        transform: translateY(70px);
+    }
+
+    .center-desktop {
+        display: none;
+    }
+
+    .center-mobile {
+        display: block;
+        margin-top: 25px;
+    }
+
+    #svg-lamp {
+        width: 120px;
+    }
+
+    .lamp-cable {
+        height: 90px;
+    }
+
+    #love-message {
+        font-size: 18px;
+        margin-top: 20px;
+        padding: 0 15px;
+    }
+}
+
+/* Luz en el fondo */
+body.lamp-on {
+    background: radial-gradient(circle, #fff4c8 0%, #0a0a0a 80%);
+    transition: background 0.6s;
+}
